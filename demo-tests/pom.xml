@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>al.qa.so</groupId>
+        <artifactId>screen-object</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>al.qa.so</groupId>
+    <artifactId>demo-tests</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <testng.version>6.9.10</testng.version>
+        <selenide.version>RELEASE</selenide.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.spring</groupId>
+            <artifactId>sut-pet-clinic</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>al.qa.so</groupId>
+            <artifactId>screen-obj</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Exec plugin to run SUT application before tests -->
+            <plugin>
+                <groupId>com.bazaarvoice.maven.plugins</groupId>
+                <artifactId>process-exec-maven-plugin</artifactId>
+                <version>0.7</version>
+                <executions>
+                    <execution>
+                        <id>start-service</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <name>sut-pet-clinic</name>
+                            <workingDir>sut-pet-clinic</workingDir>
+                            <waitForInterrupt>false</waitForInterrupt>
+                            <healthcheckUrl>http://localhost:8080/manage/health</healthcheckUrl>
+                            <arguments>
+                                <argument>java</argument>
+                                <argument>-jar</argument>
+                                <argument>${basedir}/../sut-pet-clinic/target/sut-pet-clinic-1.0-SNAPSHOT.jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!--Stop all in reverse if multiple processes -->
+                    <execution>
+                        <id>stop-service</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop-all</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.19.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
