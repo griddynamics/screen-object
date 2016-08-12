@@ -1,13 +1,13 @@
-package testng;
+package external.testng;
 
 import al.qa.so.SO;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.*;
-import screens.GoogleScreens;
+import external.screens.GoogleScreens;
 
 import static al.qa.so.SO.navigateTo;
 import static al.qa.so.coverage.Model.COVERAGE;
-import static screens.GoogleScreens.SEARCH_PAGE;
+import static external.screens.GoogleScreens.SEARCH_PAGE;
 
 /**
  * @author Alexey Lyanguzov.

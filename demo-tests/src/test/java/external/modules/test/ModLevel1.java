@@ -1,4 +1,4 @@
-package modules.test;
+package external.modules.test;
 
 import al.qa.so.ActAs;
 import al.qa.so.anno.ActionType;
@@ -7,8 +7,8 @@ import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import screens.test.TestScreen1;
-import screens.test.TestScreen2;
+import external.screens.test.TestScreen1;
+import external.screens.test.TestScreen2;
 
 /**
  * @author Alexey Lyanguzov.

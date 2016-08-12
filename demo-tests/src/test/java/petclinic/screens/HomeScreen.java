@@ -1,4 +1,4 @@
-package screens.petclinic;
+package petclinic.screens;
 
 
 import al.qa.so.BaseScreen;
@@ -8,7 +8,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
 @ScreenParams(urls = {"http://localhost:8080/"})
-public class MainScreen extends BaseScreen {
+public class HomeScreen extends BaseScreen {
 
     @Trait
     @FindBy(xpath = "//h2")

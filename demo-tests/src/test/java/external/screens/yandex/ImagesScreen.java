@@ -1,10 +1,10 @@
-package screens.yandex;
+package external.screens.yandex;
 
 import al.qa.so.BaseScreen;
 import al.qa.so.Checker;
 import al.qa.so.anno.ScreenParams;
 import al.qa.so.anno.Trait;
-import modules.yandex.ImageSearchModule;
+import external.modules.yandex.ImageSearchModule;
 import org.openqa.selenium.support.FindBy;
 
 /**

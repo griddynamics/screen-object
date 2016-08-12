@@ -1,4 +1,4 @@
-package modules.yandex;
+package external.modules.yandex;
 
 import al.qa.so.ScreenPart;
 import al.qa.so.anno.ActionType;
@@ -6,7 +6,7 @@ import al.qa.so.anno.Trait;
 import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
-import screens.yandex.ImageSearchResultsScreen;
+import external.screens.yandex.ImageSearchResultsScreen;
 
 import static al.qa.so.ActAs.Transition;
 

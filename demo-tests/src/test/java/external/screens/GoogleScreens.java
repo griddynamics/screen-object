@@ -1,10 +1,9 @@
-package screens;
+package external.screens;
 
 import al.qa.so.ScreenRegister;
-import screens.google.GoogleResultsPage;
-import screens.google.GoogleSearchPage;
-import screens.google.UnvisitedGoogleScreen;
-import screens.test.TestScreen1;
+import external.screens.google.GoogleResultsPage;
+import external.screens.google.GoogleSearchPage;
+import external.screens.google.UnvisitedGoogleScreen;
 
 /**
  * @author Alexey Lyanguzov.

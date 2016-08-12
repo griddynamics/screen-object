@@ -1,8 +1,8 @@
-package screens.test;
+package external.screens.test;
 
 import al.qa.so.BaseScreen;
 import al.qa.so.anno.ScreenParams;
-import modules.test.ModLevel1;
+import external.modules.test.ModLevel1;
 import org.openqa.selenium.support.FindBy;
 
 /**

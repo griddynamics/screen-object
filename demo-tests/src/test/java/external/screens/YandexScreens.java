@@ -1,10 +1,10 @@
-package screens;
+package external.screens;
 
 import al.qa.so.ScreenRegister;
-import screens.yandex.ImageSearchResultsScreen;
-import screens.yandex.ImagesScreen;
-import screens.yandex.MainScreen;
-import screens.yandex.SearchResultsScreen;
+import external.screens.yandex.ImageSearchResultsScreen;
+import external.screens.yandex.ImagesScreen;
+import external.screens.yandex.MainScreen;
+import external.screens.yandex.SearchResultsScreen;
 
 /**
  * @author Alexey Lyanguzov.

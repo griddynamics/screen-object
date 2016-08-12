@@ -1,16 +1,16 @@
-package testng;
+package petclinic.testng;
 
 
 import al.qa.so.SO;
 import com.codeborne.selenide.Configuration;
+import petclinic.screens.PetClinicScreens;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import screens.PetClinicScreens;
 
 import static al.qa.so.SO.navigateTo;
-import static screens.PetClinicScreens.MAIN_SCREEN;
+import static petclinic.screens.PetClinicScreens.MAIN_SCREEN;
 
-public class RunPetClinicTestIT {
+public class RunPetClinicTest {
     @BeforeSuite
     private void doit(){
         Configuration.baseUrl = "";

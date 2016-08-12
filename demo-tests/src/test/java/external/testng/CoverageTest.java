@@ -1,11 +1,11 @@
-package testng;
+package external.testng;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import screens.yandex.ImageSearchResultsScreen;
-import screens.yandex.ImagesScreen;
-import screens.yandex.MainScreen;
-import screens.yandex.SearchResultsScreen;
+import external.screens.yandex.ImageSearchResultsScreen;
+import external.screens.yandex.ImagesScreen;
+import external.screens.yandex.MainScreen;
+import external.screens.yandex.SearchResultsScreen;
 
 import static al.qa.so.coverage.Model.COVERAGE;
 

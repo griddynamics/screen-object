@@ -1,20 +1,20 @@
-package testng;
+package external.testng;
 
 import al.qa.so.SO;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.*;
-import screens.TestScreens;
-import screens.YandexScreens;
+import external.screens.TestScreens;
+import external.screens.YandexScreens;
 
 import static al.qa.so.SO.navigateTo;
 import static al.qa.so.SO.onScreen;
 import static al.qa.so.coverage.Model.COVERAGE;
-import static screens.YandexScreens.*;
+import static external.screens.YandexScreens.*;
 
 /**
  * @author Alexey Lyanguzov.
  */
-public class SampleTest1 {
+public class YandexTest {
 
     @BeforeSuite
     private void before1(){
@@ -47,7 +47,7 @@ public class SampleTest1 {
     @Test(enabled = false)
     public void dummyTest(){}
 
-    @Test(enabled = !false)
+    @Test(enabled = false)
     public void testSearchText(){
         String phrase = "something";
         String phrase2 = "anything";
@@ -66,7 +66,7 @@ public class SampleTest1 {
             });
     }
 
-    @Test(enabled = !false)
+    @Test(enabled = false)
     public void testSearchImages(){
         String phrase = "table";
         navigateTo(IMAGES_SCREEN)

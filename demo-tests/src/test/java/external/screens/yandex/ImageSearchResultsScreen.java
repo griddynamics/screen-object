@@ -1,4 +1,4 @@
-package screens.yandex;
+package external.screens.yandex;
 
 import al.qa.so.anno.ActionType;
 import al.qa.so.BaseScreen;
@@ -10,7 +10,7 @@ import al.qa.so.utils.url.UriComparator;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import modules.yandex.ImageSearchModule;
+import external.modules.yandex.ImageSearchModule;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 

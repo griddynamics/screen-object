@@ -1,4 +1,4 @@
-package screens.google;
+package external.screens.google;
 
 import al.qa.so.BaseScreen;
 import al.qa.so.anno.ActionType;

@@ -1,13 +1,11 @@
-package screens.google;
+package external.screens.google;
 
 import al.qa.so.BaseScreen;
 import al.qa.so.anno.ActionType;
 import al.qa.so.anno.ScreenParams;
 import al.qa.so.anno.Trait;
 import al.qa.so.utils.url.UriComparator;
-import al.qa.so.utils.url.UrlComparisonStrategy;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 import static al.qa.so.ActAs.Transition;

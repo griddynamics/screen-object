@@ -1,4 +1,4 @@
-package screens.test;
+package external.screens.test;
 
 import al.qa.so.BaseScreen;
 import al.qa.so.anno.ScreenParams;
