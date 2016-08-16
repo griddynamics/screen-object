@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:ddl="http://www.thymeleaf.org/dandelion"
-	  xmlns:dt="http://github.com/dandelion/datatables"
 	  ddl:bundle-includes="bootstrap3"
 	  lang="en">
 
@@ -54,7 +53,7 @@
 										</div>
 									</td>
 									<td class="col-sm-2">
-										<div class="controls" ddl:bundle-includes="jquery-ui-overcast">
+										<div class="controls">
 											<input type="text" class="form-control" th:field="*{date}" />
 											<label class="control-label" th:errors="*{date}">[error]</label>
 										</div>
