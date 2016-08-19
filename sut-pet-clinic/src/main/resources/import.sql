@@ -2,8 +2,8 @@
 -- Users
 -- ----------------------------------------------------------
 
-insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (1, 'admin@aol.com', 'admin', '$2a$04$xaSaTL6AF6nIiD32tDlsuuSvegdQEm3oKiBWi6ApCTSP9nFNAj/Qy', 'Admin', true, false, false, false);
-insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (2, 'user@aol.com', 'user', '$2a$04$4cUGAGKkm2AxnMJIRZ5dG.BrA5XtYXNm9Wt2VlyFC/xxTI0c3NbKu', 'User', true, false, false, false);
+insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (1, 'admin@aol.com', 'admin', '$2a$08$jfIRBOx5BPCKkYJSX9.sp.CM8MfuYmnZXWKXWHVGwP.JFgYziTEQ.', 'Admin', true, false, false, false);
+insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (2, 'user@aol.com', 'user', '$2a$08$jfIRBOx5BPCKkYJSX9.sp.CM8MfuYmnZXWKXWHVGwP.JFgYziTEQ.', 'User', true, false, false, false);
 insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (3, 'keith@aol.com', 'keith', '$2a$04$nSLp/Xcx7M3dzWKBS8FHNuzvc5/PjtMRyIbiljXtIr3aGB.I5OMAe', 'Keith', true, false, false, false);
 insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (4, 'erwin@aol.com', 'erwin', '$2a$04$qYCNZtXalJNrYFqPPzAxFehY3/XCEG7cF0outlr6jFwtHBTBMgpua', 'Erwin', true, false, false, false);
 insert into users (id, email, username, password, name, enabled, account_expired, account_locked, credentials_expired) values (5, 'jeremy@aol.com', 'jeremy', '$2a$04$Fiy/tKQ6j5Easl1YeN1PfuIr6YyCham5Ezm/992Wq3y2rhvyVnAfS', 'Jeremy', true, false, false, false);
