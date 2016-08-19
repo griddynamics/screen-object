@@ -4,3 +4,5 @@ target
 build
 *.swp
 *~
+*.pid
+*.port
