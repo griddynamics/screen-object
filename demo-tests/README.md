@@ -3,7 +3,16 @@ Demo tests
 
 ## To run this tests ##
 
-Build whole project. Then
+Build whole project.
 
-    mvn verify
+Then to run petclinic tests
+
+    mvn verify -Ppetclinic
+
+or if you want to run only other tests
+
+    mvn verify -Pexternal
+
+
+
 
