@@ -14,8 +14,9 @@ import com.codeborne.selenide.SelenideElement;
 import org.slf4j.Logger;
 
 import java.lang.reflect.Field;
-import java.net.URI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -32,7 +33,8 @@ public abstract class BaseScreen<ScreenChecker extends Checker> implements Scree
 
     private static final Logger LOG = Utils.getLogger();
 
-    private final List<URI> uris = new ArrayList<>();
+    private final UriComparisonStrategyType strategyType;
+    private final List<String> uris = new ArrayList<>();
     private final Class<? extends UrlComparisonStrategy> urlComparisonStrategy;
     private final List<Field> traits = new ArrayList<>();
     private final List<ElementsContainer> containers = new ArrayList<>();
@@ -40,6 +42,7 @@ public abstract class BaseScreen<ScreenChecker extends Checker> implements Scree
     public BaseScreen() {
         ScreenParams params = this.getClass().getAnnotation(ScreenParams.class);
         this.urlComparisonStrategy = params.urlComparisonStrategy();
+        this.strategyType = params.strategyType();
         initWith(params);
     }
 
@@ -88,7 +91,7 @@ public abstract class BaseScreen<ScreenChecker extends Checker> implements Scree
     }
 
     private void directOpen(){
-        String url = mainUrl().toString();
+        String url = mainUrl();
         LOG.debug("Opening url: {}", url);
         open(url);
     }
@@ -98,7 +101,7 @@ public abstract class BaseScreen<ScreenChecker extends Checker> implements Scree
                 .map(e -> {
                     String strUrl = Configuration.baseUrl + e;
                     LOG.trace("Adding url {} to screen {}", strUrl, name());
-                    return Utils.buildUri(strUrl);
+                    return strUrl;
                 })
                 .collect(Collectors.toList()));
     }
@@ -152,21 +155,35 @@ public abstract class BaseScreen<ScreenChecker extends Checker> implements Scree
         }
     }
 
-    private URI mainUrl(){
-        if(uris.isEmpty() || uris.get(0) == null){
+    private String mainUrl(){
+        if(uris.isEmpty() || uris.get(0) == null || uris.get(0).isEmpty()){
             throw new SOException("Url is not set for the screen %s", name());
         }
         return uris.get(0);
     }
 
     private boolean isUrlCorrect(){
-        URI curUrl = Utils.buildUri(url());
-        for(URI url : uris){
+        String curUrl = url();
+        for (String url : uris) {
+            boolean res;
             LOG.debug("Comparing uris: {} and {}", curUrl, url);
-            boolean res = UriComparator.areEquals(curUrl, url, urlComparisonStrategy);
+            switch (strategyType) {
+                case Plain:
+                    res = UriComparator.areEqualsPlain(curUrl, url, urlComparisonStrategy);
+                    break;
+                case Regexp:
+                    res = UriComparator.areEqualsRegexp(curUrl, url);
+                    break;
+                case Wildcard:
+                    res = UriComparator.areEqualsWildcard(curUrl, url);
+                    break;
+                default:
+                    throw new SOException("Unknown class type of uri comparison strategy type: %s", strategyType);
+            }
             LOG.trace("Url comparison result: {}", res);
-            if(res) return true;
+            if (res) return true;
         }
+
         return false;
     }
 
